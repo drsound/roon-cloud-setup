@@ -30,7 +30,7 @@ I chose an affordable solution that delivers adequate performance for my require
 - RAM: 4 GB
 - Storage: 40 GB SDS (Software-Defined Storage) NVMe
 
-#### Home Client
+#### Home client
 
 To accommodate a broader range of users, the instructions provided below are based on a generic Ubuntu Server 22.04.2 LTS. However, for my personal setup, I utilize a [Raspberry Pi 4](https://www.raspberrypi.com/products/raspberry-pi-4-model-b/) with [specific Linux Ubuntu 22.04.2 LTS version](https://ubuntu.com/download/raspberry-pi). Please note that the Raspberry Pi version of Ubuntu has some minor differences compared to the standard version, such as a slightly different network configuration file naming.
 
@@ -58,31 +58,47 @@ The performance of this setup is excellent, with no audio problems or interrupti
 
 As demonstrated by the data, any modern fiber or DSL home internet connection can handle these constant bandwidths, resulting in a seamless audio experience.
 
-## Cloud Server Setup
+## Cloud server setup
 
 Obtain root permissions to execute subsequent commands without using "sudo" prefix:
-`sudo su`
+```
+sudo su
+```
 
 Install the necessary packages:
-`apt install openvpn easy-rsa ffmpeg cifs-utils lbzip2`
+```
+apt install openvpn easy-rsa ffmpeg cifs-utils lbzip2
+```
 
 Determine the name of the public-facing Ethernet interface:
-`ip addr`
+```
+ip addr
+```
 
 Assuming the Ethernet interface is "ens3", open the required port for OpenVPN:
-`ufw allow in on ens3 proto udp to any port 1194`
+```
+ufw allow in on ens3 proto udp to any port 1194
+```
 
 Allow all traffic from your home network:
-`ufw allow in on tap0`
+```
+ufw allow in on tap0
+```
 
 Open the Roon ARC port on the internet-facing interface:
-`ufw allow in on ens3 proto tcp to any port 55000`
+```
+ufw allow in on ens3 proto tcp to any port 55000
+```
 
 Check the firewall status:
-`ufw status`
+```
+ufw status
+```
 
 Enable the firewall if it is not already enabled:
-`ufw enable`
+```
+ufw enable
+```
 
 Generate the necessary OpenVPN cryptographic initialization data and client/server certificates:
 ```
@@ -130,16 +146,24 @@ verb 1
 ```
 
 Verify the OpenVPN configuration file and ensure all required files are accessible by running OpenVPN in the foreground with increased verbosity. If no errors appear, exit with CTRL-C:
-`openvpn --config server.conf --verb 3`
+```
+openvpn --config server.conf --verb 3
+```
 
 Start OpenVPN in the background:
-`systemctl start openvpn@server.service`
+```
+systemctl start openvpn@server.service
+```
 
 Confirm OpenVPN has started:
-`systemctl status openvpn@server.service`
+```
+systemctl status openvpn@server.service
+```
 
 Enable automatic OpenVPN startup during system boot:
-`systemctl enable openvpn@server.service`
+```
+systemctl enable openvpn@server.service
+```
 
 Download Roon:
 ```
@@ -148,29 +172,43 @@ curl -O https://download.roonlabs.net/builds/roonserver-installer-linuxx64.sh
 ```
 
 Grant execution permissions to the script:
-`chmod +x roonserver-installer-linuxx64.sh`
+```
+chmod +x roonserver-installer-linuxx64.sh
+```
 
 Run the installation script:
-`./roonserver-installer-linuxx64.sh`
+```
+./roonserver-installer-linuxx64.sh
+```
 
 Remove the script as it is no longer needed:
-`rm roonserver-installer-linuxx64.sh`
+```
+rm roonserver-installer-linuxx64.sh
+```
 
 Reboot the server to verify all services start automatically:
-`reboot`
+```
+reboot
+```
 
 Upon completing these steps, your cloud server should be successfully set up with OpenVPN and Roon.
 
-## Home Client Setup
+## Home client setup
 
 Obtain root permissions to execute subsequent commands without using "sudo" prefix:
-`sudo su`
+```
+sudo su
+```
 
 Install the necessary packages:
-`apt install openvpn bridge-utils`
+```
+apt install openvpn bridge-utils
+```
 
 Edit the network configuration:
-`nano /etc/netplan/00-installer-config.yaml`
+```
+nano /etc/netplan/00-installer-config.yaml
+```
 
 Assuming ens33 is the name of your ethernet interface, modify the configuration file as follows, to setup the layer 2 bridge that will be later used by OpenVPN. Save the file using CTRL-X:
 ```
@@ -186,10 +224,14 @@ network:
 ```
 
 Apply the new network settings:
-`netplan apply`
+```
+netplan apply
+```
 
 Verify the updated network configuration by checking internet connectivity. Exit using CTRL-C:
-`ping www.google.com`
+```
+ping www.google.com
+```
 
 Transfer the required client files from the server using rsync. Alternatively, you can use tools like Filezilla, but ensure file permissions are preserved. Replace 1.2.3.4 with your cloud server's public IP address:
 ```
@@ -228,7 +270,9 @@ up /etc/openvpn/bridge_setup
 ```
 
 Create a helper script to set up the bridge automatically once the VPN connection is established:
-`nano bridge_setup`
+```
+nano bridge_setup
+```
 
 
 Insert the following content into the file, save and exit with CTRL-X:
@@ -240,21 +284,33 @@ brctl addif br0 tap0
 ```
 
 Grant execute permissions to the helper script:
-`chmod +x bridge_setup`
+```
+chmod +x bridge_setup
+```
 
 Test the OpenVPN configuration and file access by running OpenVPN in the foreground with increased verbosity. If no errors are encountered, exit with CTRL-C:
-`openvpn --config client.conf --verb 3`
+```
+openvpn --config client.conf --verb 3
+```
 
 Launch OpenVPN in the background:
-`systemctl start openvpn@client.service`
+```
+systemctl start openvpn@client.service
+```
 
 Confirm OpenVPN has started successfully:
-`systemctl status openvpn@client.service`
+```
+systemctl status openvpn@client.service
+```
 
 Enable OpenVPN to start automatically upon system boot:
-`systemctl enable openvpn@client.service`
+```
+systemctl enable openvpn@client.service
+```
 
 Reboot the client to ensure all services start automatically:
-`reboot`
+```
+reboot
+```
 
 Upon completing these steps, your home client should automatically establish a VPN connection to the cloud server and bridge it to your home network.
