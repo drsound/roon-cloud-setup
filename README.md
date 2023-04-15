@@ -233,7 +233,7 @@ Verify the updated network configuration by checking internet connectivity. Exit
 ping www.google.com
 ```
 
-Transfer the required client files from the server using rsync. Alternatively, you can use tools like Filezilla, but ensure file permissions are preserved. Replace 1.2.3.4 with your cloud server's public IP address:
+Transfer the required client files from the server using rsync. Alternatively, you can use tools like Filezilla, but ensure file permissions are preserved. Keep in mind that rsync will prompt you for your cloud server root password so that it can access and fetch the files. Also, remember to replace 1.2.3.4 with your cloud server's public IP address:
 ```
 rsync -av root@1.2.3.4:/root/cadir/pki/ca.crt /etc/openvpn
 rsync -av root@1.2.3.4:/root/cadir/ta.key /etc/openvpn
