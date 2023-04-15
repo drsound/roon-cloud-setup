@@ -235,10 +235,10 @@ ping www.google.com
 
 Transfer the required client files from the server using rsync. Alternatively, you can use tools like Filezilla, but ensure file permissions are preserved. Replace 1.2.3.4 with your cloud server's public IP address:
 ```
-rsync -av root@1234:/root/cadir/pki/ca.crt /etc/openvpn
-rsync -av root@1234:/root/cadir/ta.key /etc/openvpn
-rsync -av root@1234:/root/cadir/pki/issued/client.crt /etc/openvpn
-rsync -av root@1234:/root/cadir/pki/private/client.key /etc/openvpn
+rsync -av root@1.2.3.4:/root/cadir/pki/ca.crt /etc/openvpn
+rsync -av root@1.2.3.4:/root/cadir/ta.key /etc/openvpn
+rsync -av root@1.2.3.4:/root/cadir/pki/issued/client.crt /etc/openvpn
+rsync -av root@1.2.3.4:/root/cadir/pki/private/client.key /etc/openvpn
 ```
 
 Create an OpenVPN configuration file and open it with your text editor:
