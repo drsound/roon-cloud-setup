@@ -41,7 +41,7 @@ If you have an existing home device that can run OpenVPN, you are encouraged to 
 - QNAP or Synology NAS
 - Windows PC or Mac
 
-Side note: As Home Assistant has been mentioned, it's worth highlighting that you can utilize its [automation features](https://www.home-assistant.io/integrations/roon/) to manage various aspects of Roon playback, like volume control, playlist selection, and more, depending on specific events or triggers. Want to start Roon playback when your Alexa alarm goes off? It's entirely possible! :-)
+💡 Side note: As Home Assistant has been mentioned, it's worth highlighting that you can utilize its [automation features](https://www.home-assistant.io/integrations/roon/) to manage various aspects of Roon playback, like volume control, playlist selection, and more, depending on specific events or triggers. Want to start Roon playback when your Alexa alarm goes off? It's entirely possible! :-)
 
 ### System performance
 
