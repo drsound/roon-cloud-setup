@@ -70,17 +70,17 @@ Install the necessary packages:
 apt install openvpn easy-rsa ffmpeg cifs-utils lbzip2
 ```
 
-Determine the name of the public-facing Ethernet interface:
+Determine the name of the internet-facing interface by identifying the one that displays the public cloud IP address:
 ```
 ip addr
 ```
 
-Assuming the Ethernet interface is "ens3", open the required port for OpenVPN:
+Assuming the internet-facing interface is "ens3", open the required port for OpenVPN:
 ```
 ufw allow in on ens3 proto udp to any port 1194
 ```
 
-Allow all traffic from your home network:
+Allow all traffic from your home network, as tap0 is the virtual interface that leads to your home network and will subsequently be used by OpenVPN:
 ```
 ufw allow in on tap0
 ```
