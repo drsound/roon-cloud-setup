@@ -241,7 +241,7 @@ rsync -av root@1.2.3.4:/root/cadir/pki/issued/client.crt /etc/openvpn
 rsync -av root@1.2.3.4:/root/cadir/pki/private/client.key /etc/openvpn
 ```
 
-Create an OpenVPN configuration file and open it with your text editor:
+Create an OpenVPN configuration file and open it with a text editor:
 ```
 cd /etc/openvpn
 nano client.conf
