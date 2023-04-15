@@ -247,7 +247,7 @@ cd /etc/openvpn
 nano client.conf
 ```
 
-Copy the following content into the file. Replace 1.2.3.4 with your cloud server's actual IP address. Save the file using CTRL-X:
+Copy the following content into the file. Replace 1.2.3.4 with your cloud server's public IP address. Save the file using CTRL-X:
 ```
 dev tap0
 proto udp4
@@ -275,7 +275,7 @@ nano bridge_setup
 ```
 
 
-Insert the following content into the file, save and exit with CTRL-X:
+Copy the following content into the file, save and exit with CTRL-X:
 ```
 #!/bin/bash
 
@@ -288,7 +288,7 @@ Grant execute permissions to the helper script:
 chmod +x bridge_setup
 ```
 
-Test the OpenVPN configuration and file access by running OpenVPN in the foreground with increased verbosity. If no errors are encountered, exit with CTRL-C:
+Test the OpenVPN configuration and certificate file access by running OpenVPN in the foreground with increased verbosity. If no errors are encountered, exit with CTRL-C:
 ```
 openvpn --config client.conf --verb 3
 ```
