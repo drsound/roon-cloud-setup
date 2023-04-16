@@ -38,8 +38,8 @@ digraph network {
     roon_arc[label = "Roon ARC"]
 
     c_tap0 -> s_tap0[label = "Layer 2 connection\nover VPN", color = green, fontcolor = green]
-    br0 -> s_eth[xlabel = "OpenVPN\nUDP-1194", dir = forward, color = blue, fontcolor = blue]
+    br0 -> s_eth[label = "OpenVPN\nUDP-1194", dir = forward, color = blue, fontcolor = blue]
     root_remote -> s_tap0[label = "Server control\nover VPN", dir = forward, color = red, fontcolor = red]
     s_tap0 -> roon_endpoint[label = "Audio stream\nover VPN", dir = forward, color = red, fontcolor = red]
-    roon_arc -> s_eth[label = "Server control\nover internet", dir = forward, color = blue, fontcolor = blue]
+    roon_arc -> s_eth[label = "Server control\n\over internet\nTCP-55000", dir = forward, color = blue, fontcolor = blue]
 }
