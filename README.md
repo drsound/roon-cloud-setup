@@ -62,14 +62,15 @@ As demonstrated by the data, any modern fiber or DSL home internet connection ca
 
 For the sake of example, we'll be using the following information in this guide:
 - Public IP address of the cloud server: 1.2.3.4
-- Public interface name of the cloud server: ens33
 - Home network IP class: 192.168.1.0/24
+- Home network IP address assigned to the Roon server: 192.168.1.123 (it should be a static IP address, out of the DHCP assignment range)
+- Ethernet interface name of the Linux client: ens33
 
 Please consider these as examples and adjust them accordingly to match your home network and cloud server setup.
 
 The following network diagram illustrates the connections between the various components involved. Don't be intimidated by the complexity of the diagram; although it may appear complicated, the setup process itself is quite straightforward and easy to follow.
 - Black lines: Physical connections
-- Green line: Virtual Layer 2 connection (VPN)
+- Green line: Virtual Layer 2 link (VPN)
 - Blue lines: IP connections over the internet
 - Red lines: IP connections over VPN
 
