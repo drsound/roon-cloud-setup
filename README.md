@@ -6,11 +6,11 @@ This guide will walk you through the process of setting up a Linux cloud server 
 
 ### 💡 Benefits of a cloud solution over an [Intel NUC](https://www.intel.com/content/www/us/en/products/details/nuc.html)
 
-- Cost-effective: Cheaper than buying the hardware in the short to medium term. As of April 2023, I'm spending around 7 euros per month.
-- Stability: Not subject to power cuts
-- Data safety: Reduced risk of locally stored FLAC data corruption due to fewer power cuts
-- Availability: Continuous access to [Roon ARC](https://roonlabs.com/arc), due to the absence of power and connection cuts
-- Energy efficiency: Helps save on some home energy consumption
+- Cost efficiency: Opting for a cloud-based Roon Core is more cost-effective than purchasing the necessary hardware in the short to medium term. For instance, as of April 2023, I personally spend about 7 euros per month on this cloud infrastructure.
+- Uninterrupted access: Enjoy continuous access to [Roon ARC](https://roonlabs.com/arc) thanks to the elimination of power cuts, internet connection disruptions, and home DSL router issues.
+- Enhanced data protection: The absence of power cuts in a cloud-based solution reduces the risk of corruption for your locally stored FLAC files, ensuring your music collection remains safe.
+- Effortless scalability: When you need more storage or processing power, simply purchase additional cloud storage or CPUs to meet your demands.
+- Reduced energy consumption: Integrating the OpenVPN client into an existing home device or appliance eliminates the need for extra energy usage. In the worst-case scenario, using a dedicated Raspberry Pi will keep energy consumption minimal, at less than 5 watts.
 
 ### 🤝 Motivation and collaboration
 
@@ -41,7 +41,7 @@ If you have an existing home device that can run OpenVPN, you are encouraged to 
 - QNAP or Synology NAS
 - Windows PC or Mac
 
-💡 Side note: As Home Assistant has been mentioned, it's worth highlighting that you can utilize its [automation features](https://www.home-assistant.io/integrations/roon/) to manage various aspects of Roon playback, like volume control, playlist selection, and more, depending on specific events or triggers. Want to start Roon playback when your Alexa alarm goes off? It's entirely possible! 😎
+💡 Side note: As Home Assistant has been mentioned, it's worth highlighting that you can utilize its [automation features](https://www.home-assistant.io/integrations/roon/) to manage various aspects of Roon playback, like volume control, playlist selection, and more, depending on specific events or triggers. Want to start Roon playback when your Alexa alarm goes off in the morning or when you return home in the evening? It's entirely possible! 😎
 
 ### 📊 System performance
 
