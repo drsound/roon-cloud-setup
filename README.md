@@ -6,7 +6,7 @@ This guide will walk you through the process of setting up a Linux cloud server 
 
 ### 💡 Benefits of a cloud solution over an [Intel NUC](https://www.intel.com/content/www/us/en/products/details/nuc.html)
 
-- Cost-effective: Cheaper than buying the hardware in the short to medium term
+- Cost-effective: Cheaper than buying the hardware in the short to medium term. As of April 2023, I'm spending around 7 euros per month.
 - Stability: Not subject to power cuts
 - Data safety: Reduced risk of locally stored FLAC data corruption due to fewer power cuts
 - Availability: Continuous access to [Roon ARC](https://roonlabs.com/arc), due to the absence of power and connection cuts
