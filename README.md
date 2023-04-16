@@ -61,8 +61,8 @@ As demonstrated by the data, any modern fiber or DSL home internet connection ca
 ## Network Diagram Overview
 
 For the sake of example, we'll be using the following information in this guide:
-- Public IP address of the Linux Roon cloud server: 1.2.3.4
-- Public interface name of the Linux Roon cloud server: ens33
+- Public IP address of the cloud server: 1.2.3.4
+- Public interface name of the cloud server: ens33
 - Home network IP class: 192.168.1.0/24
 
 Please consider these as examples and adjust them accordingly to match your home network and cloud server setup.
