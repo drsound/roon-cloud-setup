@@ -1,0 +1,45 @@
+digraph network {
+    node[shape = box]
+    edge[dir = none]
+
+    subgraph cluster_home {
+        label = "Home Network\n192.168.1.0/24"
+
+        subgraph cluster_client {
+            label = "Linux\nVPN Client"
+            br0[label = "br0\nvirtual bridge\n192.168.1.x (obtained via DHCP)", shape = ellipse]
+            c_eth[label = "ens33\nethernet\ninterface", shape = ellipse]
+            c_tap0[label = "tap0\nvirtual\ninterface", shape = ellipse]
+
+
+            br0 -> c_eth
+            br0 -> c_tap0
+        }
+
+        {
+            router[label = "DSL\nRouter"]
+            rank = min
+        }
+
+        roon_endpoint[label = "Roon\nendpoint"]
+        root_remote[label = "Roon\nremote"]
+
+        c_eth -> router
+        roon_endpoint -> router
+        root_remote -> router
+    }
+
+    subgraph cluster_server {
+        label = "Cloud Linux\nRoon Server"
+        s_eth[label = "ethernet interface\n1.2.3.4 (public static IP)", shape = ellipse]
+        s_tap0[label = "tap0\nvirtual interface\n192.168.1.123 (private static IP)", shape = ellipse]
+    }
+
+    roon_arc[label = "Roon ARC"]
+
+    c_tap0 -> s_tap0[label = "Layer 2 connection\nover VPN", color = green, fontcolor = green]
+    br0 -> s_eth[xlabel = "OpenVPN\nUDP-1194", dir = forward, color = blue, fontcolor = blue]
+    root_remote -> s_tap0[label = "Server control\nover VPN", dir = forward, color = red, fontcolor = red]
+    s_tap0 -> roon_endpoint[label = "Audio stream\nover VPN", dir = forward, color = red, fontcolor = red]
+    roon_arc -> s_eth[label = "Server control\nover internet", dir = forward, color = blue, fontcolor = blue]
+}
