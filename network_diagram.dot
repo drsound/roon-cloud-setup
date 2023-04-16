@@ -3,13 +3,15 @@ digraph network {
     edge[dir = none]
 
     subgraph cluster_home {
-        label = "Home Network\n192.168.1.0/24"
+        label = "Home network\n192.168.1.0/24"
+        bgcolor="lightgreen"
 
         subgraph cluster_client {
-            label = "Linux\nVPN Client"
-            br0[label = "br0\nvirtual bridge\n192.168.1.x (obtained via DHCP)", shape = ellipse]
-            c_eth[label = "ens33\nethernet\ninterface", shape = ellipse]
-            c_tap0[label = "tap0\nvirtual\ninterface", shape = ellipse]
+            label = "Linux\nVPN client"
+            bgcolor="lightgrey"
+            br0[label = "br0\nvirtual bridge\n192.168.1.x (obtained via DHCP)", shape = ellipse, style = filled, fillcolor="white"]
+            c_eth[label = "ens33\nethernet\ninterface", shape = ellipse, style = filled, fillcolor="white"]
+            c_tap0[label = "tap0\nvirtual\ninterface", shape = ellipse, style = filled, fillcolor="white"]
 
 
             br0 -> c_eth
@@ -17,12 +19,12 @@ digraph network {
         }
 
         {
-            router[label = "DSL\nRouter"]
+            router[label = "DSL\nrouter", style = filled, fillcolor="lightgrey"]
             rank = min
         }
 
-        roon_endpoint[label = "Roon\nendpoint"]
-        root_remote[label = "Roon\nremote"]
+        roon_endpoint[label = "Roon\nendpoint", style = filled, fillcolor="lightgrey"]
+        root_remote[label = "Roon\nremote", style = filled, fillcolor="lightgrey"]
 
         c_eth -> router
         roon_endpoint -> router
@@ -30,12 +32,13 @@ digraph network {
     }
 
     subgraph cluster_server {
-        label = "Cloud Linux\nRoon Server"
-        s_eth[label = "ethernet interface\n1.2.3.4 (public static IP)", shape = ellipse]
-        s_tap0[label = "tap0\nvirtual interface\n192.168.1.123 (private static IP)", shape = ellipse]
+        label = "Linux cloud\nRoon server"
+        bgcolor="lightgrey"
+        s_eth[label = "ethernet interface\n1.2.3.4 (public static IP)", shape = ellipse, style = filled, fillcolor="white"]
+        s_tap0[label = "tap0\nvirtual interface\n192.168.1.123 (private static IP)", shape = ellipse, style = filled, fillcolor="white"]
     }
 
-    roon_arc[label = "Roon ARC"]
+    roon_arc[label = "Roon ARC", style = filled, fillcolor="lightgrey"]
 
     c_tap0 -> s_tap0[label = "Layer 2 connection\nover VPN", color = green, fontcolor = green]
     br0 -> s_eth[label = "OpenVPN\nUDP-1194", dir = forward, color = blue, fontcolor = blue]
