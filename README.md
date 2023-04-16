@@ -331,3 +331,53 @@ reboot
 ```
 
 Upon completing these steps, your home client should automatically establish a VPN connection to the cloud server and bridge it to your home network.
+
+## 🔍 Troubleshooting
+
+### Connecting Roon remote to Roon server
+
+Sometimes, when setting up a Roon remote for the first time, it may not automatically find the Roon server on your local network. If this occurs, follow these steps:
+
+- Click on the "Help" link in the Roon remote app:
+
+  ![Roon remote troubleshoot step 1](https://user-images.githubusercontent.com/471234/232323760-8ee042f5-1772-40a3-a186-06282095538f.jpg)
+
+- Enter the Roon server's home network IP address (e.g. 192.168.1.123):
+
+  ![Roon remote troubleshoot step 2](https://user-images.githubusercontent.com/471234/232323770-e80b476e-6610-489e-83b5-d4c0e7588b33.jpg)
+
+### Resolving OpenVPN connection issues
+
+If you encounter OpenVPN connection issues, often due to missing or inaccessible configuration files or incorrect file permissions, follow these steps:
+- Open a terminal on both the server and client consoles.
+- On the server terminal, stop the OpenVPN service and ensure no OpenVPN instances are running (the second command should return no output):
+  ```
+  systemctl stop openvpn@server.service
+  ss -anp|grep openvpn
+  ```
+- On the client terminal, stop the OpenVPN service and ensure no OpenVPN instances are running (the second command should return no output):
+  ```
+  systemctl stop openvpn@client.service
+  ss -anp|grep openvpn
+  ```
+- Run OpenVPN in the foreground on the server terminal with increased verbosity. You may later exit using CTRL-C:
+  ```
+  cd /etc/openvpn
+  openvpn --config server.conf --verb 3
+  ```
+- Run OpenVPN in the foreground on the client terminal with increased verbosity. You may later exit using CTRL-C:
+  ```
+  cd /etc/openvpn
+  openvpn --config client.conf --verb 3
+  ```
+If everything is set up correctly, you should see log messages on both terminals indicating that the connection has been established. If not, review the error messages and work to resolve them.
+
+Once you've identified and fixed any issues:
+- Restart the background OpenVPN instance on the server:
+  ```
+  systemctl start openvpn@server.service
+  ```
+- Restart the background OpenVPN instance on the client:
+  ```
+  systemctl start openvpn@client.service
+  ```
