@@ -73,7 +73,7 @@ The following network diagram illustrates the connections between the various co
 - Blue lines: IP connections over the internet
 - Red lines: IP connections over VPN
 
-![Network diagram](https://user-images.githubusercontent.com/471234/232314623-824ebcce-12c7-4d52-82c7-132eede03e09.svg)
+![Network diagram](https://user-images.githubusercontent.com/471234/232319930-fb11f2d5-a2fa-4921-8a91-1c9823d942f9.svg)
 
 ## ☁️🔧 Cloud server setup
 
