@@ -58,6 +58,16 @@ The performance of this setup is excellent, with no audio problems or interrupti
 
 As demonstrated by the data, any modern fiber or DSL home internet connection can handle these constant bandwidths, resulting in a seamless audio experience.
 
+## Network Diagram Overview
+
+The following network diagram illustrates the connections between the various components involved:
+- Black lines: Physical connections
+- Green line: Virtual Layer 2 connection (VPN)
+- Blue lines: IP connections over the internet
+- Red lines: IP connections over VPN
+
+![Network diagram](https://user-images.githubusercontent.com/471234/232314623-824ebcce-12c7-4d52-82c7-132eede03e09.svg)
+
 ## Cloud server setup
 
 Obtain root permissions to execute subsequent commands without using "sudo" prefix:
