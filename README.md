@@ -1,10 +1,10 @@
 # Setting up Roon on a Linux cloud server
 
-## Introduction
+## 🚀 Introduction
 
 This guide will walk you through the process of setting up a Linux cloud server running [Roon](https://roonlabs.com/), connected to your home network via an [OpenVPN](https://openvpn.net/community/) Layer 2 VPN. This setup allows Roon to be virtually part of your home network while running in the cloud.
 
-### Benefits of a cloud solution over an [Intel NUC](https://www.intel.com/content/www/us/en/products/details/nuc.html)
+### 💡 Benefits of a cloud solution over an [Intel NUC](https://www.intel.com/content/www/us/en/products/details/nuc.html)
 
 - Cost-effective: Cheaper than buying the hardware in the short to medium term
 - Stability: Not subject to power cuts
@@ -12,17 +12,17 @@ This guide will walk you through the process of setting up a Linux cloud server 
 - Availability: Continuous access to [Roon ARC](https://roonlabs.com/arc), due to the absence of power and connection cuts
 - Energy efficiency: Helps save on some home energy consumption
 
-### Motivation and collaboration
+### 🤝 Motivation and collaboration
 
 Numerous Roon users are in search of a practical and streamlined method to operate Roon on a cloud machine. While there have been successful endeavors, piecing together a complete guide and an easily reproducible solution from fragmented forum discussions can be quite a challenge.
 
 To address this, I invite you to engage in forum discussions about the proposed solution and contribute back to this guide after these conversations. To do so, please follow the standard [GitHub workflow](https://docs.github.com/en/get-started/quickstart/contributing-to-projects): fork the repository, make your changes, commit, and submit a pull request.
 
-### System configuration
+### 🛠️ System configuration
 
 I opted for [Linux Ubuntu Server 22.04.2 LTS](https://ubuntu.com/download/server), a widely used Linux distribution, for both the cloud server and the home VPN endpoint (the VPN client). However, these instructions can be easily adjusted to accommodate other Linux distributions.
 
-#### Cloud server
+#### ☁️ Cloud server
 
 I chose an affordable solution that delivers adequate performance for my requirements, and it's possible that an even less powerful CPU option would suffice, as detailed in the performance section below. The specifications of the selected solution are as follows:
 - Hypervisor platform: OpenStack
@@ -30,7 +30,7 @@ I chose an affordable solution that delivers adequate performance for my require
 - RAM: 4 GB
 - Storage: 40 GB SDS (Software-Defined Storage) NVMe
 
-#### Home client
+#### 🏠 Home client
 
 To accommodate a broader range of users, the instructions provided below are based on a generic Ubuntu Server 22.04.2 LTS. However, for my personal setup, I utilize a [Raspberry Pi 4](https://www.raspberrypi.com/products/raspberry-pi-4-model-b/) with [specific Linux Ubuntu 22.04.2 LTS version](https://ubuntu.com/download/raspberry-pi). Please note that the Raspberry Pi version of Ubuntu has some minor differences compared to the standard version, such as a slightly different network configuration file naming.
 
@@ -43,7 +43,7 @@ If you have an existing home device that can run OpenVPN, you are encouraged to 
 
 💡 Side note: As Home Assistant has been mentioned, it's worth highlighting that you can utilize its [automation features](https://www.home-assistant.io/integrations/roon/) to manage various aspects of Roon playback, like volume control, playlist selection, and more, depending on specific events or triggers. Want to start Roon playback when your Alexa alarm goes off? It's entirely possible! 😎
 
-### System performance
+### 📊 System performance
 
 The performance of this setup is excellent, with no audio problems or interruptions. Based on the CPU usage data below, it is likely that even a lower-end cloud server would suffice. It is worth noting that I am not using any Roon DSP, only volume leveling. The following data was collected from the cloud server while playing a track from Qobuz, FLAC 192 kHz, 24 bit (I purposefully selected the most demanding audio format available):
 
@@ -58,7 +58,7 @@ The performance of this setup is excellent, with no audio problems or interrupti
 
 As demonstrated by the data, any modern fiber or DSL home internet connection can handle these constant bandwidths, resulting in a seamless audio experience.
 
-## Network Diagram Overview
+## 🌐 Network Diagram Overview
 
 For the sake of example, we'll be using the following information in this guide:
 - Public IP address of the cloud server: 1.2.3.4
@@ -75,7 +75,7 @@ The following network diagram illustrates the connections between the various co
 
 ![Network diagram](https://user-images.githubusercontent.com/471234/232314623-824ebcce-12c7-4d52-82c7-132eede03e09.svg)
 
-## Cloud server setup
+## ☁️🔧 Cloud server setup
 
 Obtain root permissions to execute subsequent commands without using "sudo" prefix:
 ```
@@ -210,7 +210,7 @@ reboot
 
 Upon completing these steps, your cloud server should be successfully set up with OpenVPN and Roon.
 
-## Home client setup
+## 🏠🔧 Home client setup
 
 Obtain root permissions to execute subsequent commands without using "sudo" prefix:
 ```
