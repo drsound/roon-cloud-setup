@@ -350,13 +350,15 @@ Sometimes, when setting up a Roon remote for the first time, it may not automati
 
 If you encounter OpenVPN connection issues, often due to missing or inaccessible configuration files or incorrect file permissions, follow these steps:
 - Open a terminal on both the server and client consoles.
-- On the server terminal, stop the OpenVPN service and ensure no OpenVPN instances are running (the second command should return no output):
+- On the server terminal, get root permissions, stop the OpenVPN service and ensure no OpenVPN instances are running (the second command should return no output):
   ```
+  sudo su
   systemctl stop openvpn@server.service
   ss -anp|grep openvpn
   ```
-- On the client terminal, stop the OpenVPN service and ensure no OpenVPN instances are running (the second command should return no output):
+- On the client terminal, get root permissions, stop the OpenVPN service and ensure no OpenVPN instances are running (the second command should return no output):
   ```
+  sudo su
   systemctl stop openvpn@client.service
   ss -anp|grep openvpn
   ```
