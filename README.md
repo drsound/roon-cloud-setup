@@ -9,7 +9,7 @@ This guide will walk you through the process of setting up a Linux cloud server 
 - Cost efficiency: Opting for a cloud-based Roon Core is more cost-effective than purchasing the necessary hardware in the short to medium term. For instance, as of April 2023, I personally spend about 7 euros per month on this cloud infrastructure.
 - Uninterrupted access: Enjoy continuous access to [Roon ARC](https://roonlabs.com/arc) thanks to the elimination of power cuts, internet connection disruptions, and home DSL router issues.
 - Enhanced data protection: The absence of power cuts in a cloud-based solution reduces the risk of corruption for your locally stored FLAC files, ensuring your music collection remains safe.
-- Effortless scalability: When you need more storage or processing power, simply purchase additional cloud storage or CPUs to meet your demands.
+- Effortless scalability: When you need more storage or processing power, simply purchase additional cloud storage or CPUs to meet your demands. If you find cheaper storage offered by a third-party cloud provider, you can also attach it to your existing cloud server and seamlessly utilize it, although this option is not currently covered in this guide.
 - Reduced energy consumption: Integrating the OpenVPN client into an existing home device or appliance eliminates the need for extra energy usage. In the worst-case scenario, using a dedicated Raspberry Pi will keep energy consumption minimal, at less than 5 watts.
 
 ### 🤝 Motivation and collaboration
