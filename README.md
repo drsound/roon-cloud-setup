@@ -11,6 +11,7 @@ This guide will walk you through the process of setting up a Linux cloud server 
 - Enhanced data protection: The absence of power cuts in a cloud-based solution reduces the risk of corruption for your locally stored FLAC files, ensuring your music collection remains safe.
 - Effortless scalability: When you need more storage or processing power, simply purchase additional cloud storage or CPUs to meet your demands. If you find cheaper storage offered by a third-party cloud provider, you can also attach it to your existing cloud server and seamlessly utilize it, although this option is not currently covered in this guide.
 - Reduced energy consumption: Integrating the OpenVPN client into an existing home device or appliance eliminates the need for extra energy usage. In the worst-case scenario, using a dedicated Raspberry Pi will keep energy consumption minimal, at less than 5 watts.
+- No fan noise: Since you are running your Roon Core on a cloud server, there is no fan noise generated. This allows you to avoid having to hide your Roon Core far from your speakers or invest in a fanless system.
 
 ### 🤝 Motivation and collaboration
 
